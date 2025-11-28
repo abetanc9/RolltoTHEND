@@ -174,6 +174,11 @@ class texto:
     linea = texto[actual]
     listo = False
 '''
+class FONDO:
+    fondo = pygame.image.load("./imagenes/fondos/forest2.jpg").convert_alpha()
+    imagen = pygame.transform.scale(fondo,(ANCHO,ALTO))
+    ancho = imagen.get_width().size[0]
+    posicion = 0
 
 def mostrarTextoSistema(texto):
     letra = pygame.font.SysFont(texto.font,texto.size)
