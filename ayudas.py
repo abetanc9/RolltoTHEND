@@ -178,7 +178,9 @@ class texto:
     listo = False
 '''
 class FONDO:
-    fondo = pygame.image.load("./imagenes/fondos/forest2.jpg").convert_alpha()
+    BASE = os.path.dirname(__file__)
+    path_img = os.path.join(BASE, "imagenes", "fondos", "forest2.jpg")
+    fondo = pygame.image.load(path_img).convert_alpha()
     imagen = pygame.transform.scale(fondo,(ANCHO,ALTO))
     ancho = imagen.get_width().size[0]
     posicion = 0
