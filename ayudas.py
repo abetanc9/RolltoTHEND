@@ -108,11 +108,14 @@ forest2 = './imagenes/fondos/forest2.jpg'
 usuarios = './archivos/usuarios.txt'
 
 # SONIDOS:
-amusement = pygame.mixer.Sound('./sonidos/amusement_park_stage_bpm150.mp3')
+amusement = pygame.mixer.Sound('./sonidos/double-car-horn-352443.mp3')
+
+'''
 cave  = pygame.mixer.Sound('./sonidos/cave.mp3')
 daydream  = pygame.mixer.Sound('./sonidos/daydream.mp3')
 salto = pygame.mixer.Sound('./sonidos/jump_10.wav')
 saltoJuancho = pygame.mixer.Sound('./sonidos/saltoJuancho.mp3')
+'''
 
 VECTOR = pygame.math.Vector2 
 
@@ -430,5 +433,5 @@ def mapa(mapa):
             CAMARA.add(sprite)            
 
 # LISTA DE MAPAS:
-mapa1 = './mapas/mapa1/mapa1.tmx'      
+mapa1 = './mapas/mapa1.tmx'      
 mapa2 = './mapas/mapa2/mapa2.tmx'        

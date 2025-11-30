@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.10" tiledversion="1.11.2" name="Archivo_000" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
+ <image source="../../../Downloads/Archivo_000.jpeg" width="1024" height="1024"/>
+</tileset>

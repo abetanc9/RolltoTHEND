@@ -1,0 +1,37 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "Suelo.tsx": {
+            "scaleInDock": 1
+        },
+        "mao.tmx": {
+            "scale": 1.390859375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 479.91911475594,
+                "y": 320.30556647756
+            }
+        },
+        "mapa1.tmx": {
+            "scale": 1.7491875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 399.89995354986246,
+                "y": 239.8256333297602
+            }
+        },
+        "suelo2.tsx": {
+            "scaleInDock": 1
+        }
+    },
+    "openFiles": [
+    ],
+    "project": "mapaa.tiled-project",
+    "recentFiles": [
+        "mao.tmx",
+        "mapa1.tmx"
+    ]
+}
