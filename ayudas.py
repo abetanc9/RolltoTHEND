@@ -10,7 +10,7 @@ pygame.init()
 
 pygame.font.init()
 
-FPS = 40
+FPS = 30
 
 RELOJ = pygame.time.Clock()
 
@@ -35,6 +35,7 @@ pygame.display.set_caption('Aqui va el titulo de la ventana')
 class Ayudas:
     pygame.init()
     EVENTOS = pygame.event.get()
+    JUEGO_ACTIVO = True
     actual = 'inicio'
     usuario = ''
     ACCION = 'ninguna'
@@ -64,25 +65,15 @@ azul = (0, 0, 255)
 
 # TIPOS DE FUENTES:
 
-letra1 = 'bahnschrift'
-
-letra2 = 'papyrus'
-
-letra3 = 'jokerman'
-
-letra4 = 'frenchscript'
-
-letra5 = 'stencil'
-
-letra6 = './fonts/Anagram.ttf'
-
-letra7 = './fonts/VT323-Regular.ttf'
-
-arialblack = 'arialblack'
+letra_pixel = './fonts/VT323-Regular.ttf'
 
 AirstreamTTF = './fonts/Airstream.ttf'
 
+letra6 = './fonts/Anagram.ttf'
+
 # LISTA DE IMAGENES #Sara aquí debes ingresar las imagenes
+menu = './imagenes/inicio.jpg'
+
 grama = './imagenes/grama.png' 
 grama2 = './imagenes/grama2.png'
 montaña = './imagenes/montaña.png'
@@ -91,7 +82,6 @@ safari = './imagenes/safari.png'
 summer = './imagenes/Summer5.png'
 
 back = './imagenes/botones/back.png'
-menu = './imagenes/botones/menu.png'
 mfx = './imagenes/botones/mfx.png'
 mfxs = './imagenes/botones/mfxs.png'
 moregames = './imagenes/botones/moregames.png'
@@ -108,8 +98,20 @@ forest2 = './imagenes/fondos/forest2.jpg'
 usuarios = './archivos/usuarios.txt'
 
 # SONIDOS:
-amusement = pygame.mixer.Sound('./sonidos/double-car-horn-352443.mp3')
+amusement = pygame.mixer.Sound('./sonidos/Blinding Lights [8 Bit Tribute to The Weeknd] - 8 Bit Universe.mp3')
 
+'''
+class Nombre:
+    texto = 'press SPACE to PAUSE'
+    letra = letra_pixel
+    color = limon
+    x = 100
+    y = 50
+    size = 40
+    parpadear = False
+    parpadeo = 0
+    tiempo = 0
+'''
 '''
 cave  = pygame.mixer.Sound('./sonidos/cave.mp3')
 daydream  = pygame.mixer.Sound('./sonidos/daydream.mp3')
@@ -119,11 +121,43 @@ saltoJuancho = pygame.mixer.Sound('./sonidos/saltoJuancho.mp3')
 
 VECTOR = pygame.math.Vector2 
 
+# LISTAS DE SPRITES:
+SPRITES = pygame.sprite.Group()
+
+PLATAFORMAS = pygame.sprite.Group()
+
+CAMARA = pygame.sprite.Group()
+
+COLISIONES = pygame.sprite.Group()   
+
+PORTAL = pygame.sprite.Group()
+
+OBJETOS = pygame.sprite.Group()
+
+BASURAS = pygame.sprite.Group()
+
+CHERRIES = pygame.sprite.Group()
+
+ROTAN = pygame.sprite.Group()
+
+GIRAN = pygame.sprite.Group()
+
+INCLINADAS1 = pygame.sprite.Group()
+
+INCLINADAS2 = pygame.sprite.Group()
+
+def ponerTexto(texto):
+    tipoLetra = pygame.font.Font('./fonts/' + texto.letra, texto.size)
+    ventana.blit(tipoLetra.render(str(texto.texto),True,texto.color),(texto.x,texto.y))
 
 def mostrarLetraSistema():
     letras = pygame.font.get_fonts()
     for l in letras:
         print(l)
+
+def ponerFondo(fondo):
+    ventana.blit(fondo.imagen,(fondo.posicion,0))
+    ventana.blit(fondo.imagen,(fondo.ancho + fondo.posicion,0))
 
 # variable texto normal:
 '''
@@ -177,13 +211,15 @@ class texto:
     linea = texto[actual]
     listo = False
 '''
+'''
 class FONDO:
     BASE = os.path.dirname(__file__)
-    path_img = os.path.join(BASE, "imagenes", "fondos", "forest2.jpg")
+    path_img = os.path.join(BASE, "imagenes", "inicio.jpg")
     fondo = pygame.image.load(path_img).convert_alpha()
     imagen = pygame.transform.scale(fondo,(ANCHO,ALTO))
-    ancho = imagen.get_width().size[0]
+    ancho, alto = imagen.get_size()
     posicion = 0
+'''
 
 def mostrarTextoSistema(texto):
     letra = pygame.font.SysFont(texto.font,texto.size)
@@ -355,30 +391,7 @@ def info(mensaje):
                   ALTO//2-tablero.get_height()//2))
 
 
-# LISTAS DE SPRITES:
-SPRITES = pygame.sprite.Group()
 
-PLATAFORMAS = pygame.sprite.Group()
-
-CAMARA = pygame.sprite.Group()
-
-COLISIONES = pygame.sprite.Group()   
-
-PORTAL = pygame.sprite.Group()
-
-OBJETOS = pygame.sprite.Group()
-
-BASURAS = pygame.sprite.Group()
-
-CHERRIES = pygame.sprite.Group()
-
-ROTAN = pygame.sprite.Group()
-
-GIRAN = pygame.sprite.Group()
-
-INCLINADAS1 = pygame.sprite.Group()
-
-INCLINADAS2 = pygame.sprite.Group()
 
 offset = VECTOR((0,0))
 
